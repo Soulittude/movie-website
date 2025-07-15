@@ -5,10 +5,17 @@ import "./App.css";
 import MovieCard from "./component/MovieCard";
 
 function App() {
+  const movieNumber = 2;
   return (
     <>
-      <MovieCard movie={{ title: "La Vita Bella", release_date: "1986" }} />
-      <MovieCard movie={{ title: "Star Wars", release_date: "1992" }} />
+      {movieNumber === 1 ? (
+        <MovieCard movie={{ title: "La Vita Bella", release_date: "1986" }} />
+      ) : (
+        <>
+          <MovieCard movie={{ title: "La Vita Bella", release_date: "1986" }} />
+          <MovieCard movie={{ title: "Star Wars", release_date: "1992" }} />
+        </>
+      )}
     </>
   );
 }
