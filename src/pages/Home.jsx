@@ -11,7 +11,8 @@ function Home() {
     { id: 4, title: "The Godfather", release_date: "1956" },
   ];
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     alert(searchQuery);
   };
 
