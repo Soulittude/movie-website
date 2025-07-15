@@ -2,22 +2,14 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import MovieCard from "./component/MovieCard";
 
 function App() {
   return (
     <>
-      <ExampleText textProp={"Hello"} color={"red"} />
-      <ExampleText textProp={"World"} color={"blue"}></ExampleText>
-      <ExampleText textProp={"And Me"} color={"yellow"} />
+      <MovieCard movie={{ title: "La Vita Bella", release_date: "1986" }} />
+      <MovieCard movie={{ title: "Star Wars", release_date: "1992" }} />
     </>
-  );
-}
-
-function ExampleText({ textProp, color }) {
-  return (
-    <div>
-      <h1 style={{ color: color }}>{textProp}</h1>
-    </div>
   );
 }
 
