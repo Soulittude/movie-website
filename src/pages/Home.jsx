@@ -1,8 +1,7 @@
-import React from "react";
-import MovieCard from "../component/MovieCard";
+import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
-import "../css/home.css";
-import { getPopularMovies, searchMovies } from "../services/api";
+import { searchMovies, getPopularMovies } from "../services/api";
+import "../css/Home.css";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,6 +21,7 @@ function Home() {
         setLoading(false);
       }
     };
+
     loadPopularMovies();
   }, []);
 
@@ -36,6 +36,7 @@ function Home() {
       setMovies(searchResults);
       setError(null);
     } catch (err) {
+      console.log(err);
       setError("Failed to search movies...");
     } finally {
       setLoading(false);
@@ -47,16 +48,18 @@ function Home() {
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
+          placeholder="Search for movies..."
+          className="search-input"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-          placeholder="Search for movies"
         />
         <button type="submit" className="search-button">
           Search
         </button>
       </form>
+
       {error && <div className="error-message">{error}</div>}
+
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
